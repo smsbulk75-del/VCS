@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIJAYA CNG SERVICES · Ahmednagar</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter clean -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #fbfdfc;
+            color: #1e2f2d;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* header / nav */
+        header {
+            background: #0a3b32;
+            color: white;
+            padding: 18px 0;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .logo-area span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #c6ece2;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #ecfefb;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b0e6d9;
+            color: white;
+        }
+
+        /* buttons & cards */
+        .btn {
+            background: #1c6e5e;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #115a4b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px -6px #0a3b3233;
+        }
+
+        /* sections */
+        section {
+            padding: 64px 0;
+            border-bottom: 1px solid #e2eee9;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0a3b32;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-sub {
+            color: #3b5e55;
+            font-size: 1.2rem;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        /* company card */
+        .company-card {
+            background: white;
+            border-radius: 36px;
+            padding: 40px 44px;
+            box-shadow: 0 8px 26px rgba(10,59,50,0.04);
+            border: 1px solid #d6ebe6;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .company-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .badge {
+            background: #e1f2ef;
+            color: #0a3b32;
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 50px;
+            display: inline-block;
+            width: fit-content;
+            font-size: 0.95rem;
+        }
+
+        .icon-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .icon-list i {
+            width: 28px;
+            color: #1c6e5e;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px 24px;
+            border: 1px solid #dcf0ec;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .service-card:hover {
+            border-color: #9bc5be;
+            box-shadow: 0 20px 28px -12px rgba(28,110,94,0.12);
+        }
+
+        .service-icon {
+            background: #e3f2ef;
+            width: 56px;
+            height: 56px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: #0a3b32;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #1e3e3a;
+        }
+
+        .service-card p {
+            color: #3e5f59;
+        }
+
+        .highlight {
+            background: #f4fbf9;
+            border-left: 6px solid #1c6e5e;
+            padding: 24px 32px;
+            border-radius: 20px;
+            margin: 40px 0 20px;
+            font-weight: 500;
+        }
+
+        .contact-block {
+            background: white;
+            padding: 44px 44px;
+            border-radius: 44px;
+            border: 1px solid #c8e2db;
+            box-shadow: 0 10px 26px rgba(10,59,50,0.03);
+        }
+
+        .row-phones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            margin: 24px 0 12px;
+        }
+
+        .phone-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #f2faf8;
+            padding: 10px 24px;
+            border-radius: 60px;
+        }
+
+        .footer-links {
+            background: #0a3b32;
+            color: #dff3f0;
+            padding: 44px 0 32px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #d0ece6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.98rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 24px;
+            font-size: 1.25rem;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #266e62;
+            padding-top: 32px;
+            margin-top: 48px;
+            color: #b1dfd4;
+            font-size: 0.95rem;
+        }
+
+        .policy-section, .terms-section, .contact-section {
+            padding-top: 32px;
+            padding-bottom: 48px;
+        }
+
+        .policy-card, .terms-card {
+            background: #f6fcfb;
+            padding: 36px 40px;
+            border-radius: 32px;
+            border: 1px solid #c1ddd6;
+        }
+
+        hr {
+            border: 1px solid #bee5de;
+            margin: 32px 0;
+        }
+
+        .mobile-friendly {
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 800px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .company-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+        /* owner name highlight */
+        .owner-name {
+            font-weight: 700;
+            color: #0f5246;
+            background: #e0f0ed;
+            padding: 2px 12px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        .footer-bottom {
+            background: #052d26;
+            padding: 12px 0;
+            color: #b6e3da;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER with navigation (privacy, terms, contact) -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo-area">
+                <h1>VIJAYA CNG</h1>
+                <span>Ahmednagar · since 2022</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HOME SECTION (full details) -->
+        <section id="home" style="padding-bottom: 20px;">
+            <div class="container">
+                <div class="company-card">
+                    <div class="company-detail">
+                        <span class="badge"><i class="fas fa-star" style="margin-right: 6px;"></i> AUTHORIZED CNG CENTER</span>
+                        <h2 style="font-size: 2.4rem; font-weight: 700; color: #0a3b32; margin: 10px 0 6px;">VIJAYA CNG SERVICES</h2>
+                        <p style="font-size: 1.3rem; font-weight: 500; color: #1f6c5e;"><span class="owner-name"><i class="fas fa-user"></i> Satish Jalandar Jadhav</span>  (Proprietor)</p>
+                        <div class="icon-list">
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> AHMEDNAGAR, Maharashtra – 414001</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> vijaycngservices@gmail.com</p>
+                            <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> 7020043768  &nbsp;|&nbsp;  9970282161</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>Established:</strong> 2022 · Eco-friendly fuel solutions</p>
+                        </div>
+                    </div>
+                    <div style="background: #e5f6f2; padding: 24px; border-radius: 32px; min-width: 200px;">
+                        <i class="fas fa-gas-pump" style="font-size: 3.2rem; color: #0a3b32; margin-bottom: 12px;"></i>
+                        <p style="font-weight: 700; font-size: 1.3rem; color: #0d4d43;">Fleet & Personal</p>
+                        <p style="color: #1b5e53;">CNG kits · Hydro test · software</p>
+                    </div>
+                </div>
+                
+                <!-- Company description highlighted -->
+                <div style="margin-top: 40px; background: #eaf6f3; padding: 28px 36px; border-radius: 48px 20px 48px 20px;">
+                    <p style="font-size: 1.25rem; font-weight: 450; color: #1e4c45;"><i class="fas fa-leaf" style="color: #136156; margin-right: 12px;"></i> Established in 2022, <strong>Vijaya CNG Services</strong> is a specialized automotive service provider based in Ahmednagar, Maharashtra, focusing on environmentally friendly fuel solutions for both personal and commercial vehicles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE SERVICES section -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">⛽ Core CNG Services</h2>
+                <p class="section-sub">Professional, reliable & authorized — Ahmednagar's trusted CNG workshop</p>
+                
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h3>CNG Kit Installation</h3>
+                        <p>High-quality conversion kits for cars, buses & commercial trucks. Improve fuel efficiency and lower emissions. Authorized fitment center.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Cylinder Hydro Testing</h3>
+                        <p>Essential safety & leakage tests. Pressure testing as per standards. <strong>~ ₹2,200 per cylinder</strong>. Certified process.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>Repair & Maintenance</h3>
+                        <p>Full diagnostics, injector cleaning, pressure regulator replacement. Complete CNG system care.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Software Tool Kit</h3>
+                        <p>Advanced sequential CNG kit optimization. ECU calibration & performance tuning using specialized software.</p>
+                    </div>
+                </div>
+
+                <!-- Service Highlights / fleet -->
+                <div class="highlight">
+                    <i class="fas fa-shield-alt" style="font-size: 2rem; float: right; color: #0a5f52;"></i>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: #0a3b32; margin-bottom: 12px;">⚡ SERVICE HIGHLIGHTS</h3>
+                    <p style="font-size: 1.15rem; margin-bottom: 8px;">✔ Authorized Center — Recognized regional center for CNG fitment & cylinder testing.</p>
+                    <p style="font-size: 1.15rem;">✔ Fleet Conversion — Specialized retrofit for commercial fleets. Reduce fuel expenses & emissions significantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE / section (explicit) -->
+        <section id="contact" style="background: #f2f9f7;">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-address-card"></i> Contact & location</h2>
+                <div class="contact-block">
+                    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+                        <div style="flex: 1 1 260px;">
+                            <p style="font-size: 1.6rem; font-weight: 700; color: #0a3b32;">Satish Jalandar Jadhav</p>
+                            <p style="font-size: 1.2rem; color: #2b6b5f; margin-bottom: 20px;"><i class="fas fa-store"></i> VIJAYA CNG SERVICES</p>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div class="phone-item">
+                                    <i class="fas fa-phone-circle" style="font-size: 1.6rem; color: #0a5f52;"></i>
+                                    <div><strong>📞 7020043768</strong> <span style="margin:0 8px">|</span> <strong>9970282161</strong></div>
+                                </div>
+                                <p><i class="fas fa-envelope"></i> vijaycngservices@gmail.com</p>
+                                <p><i class="fas fa-location-dot"></i> Ahmednagar, Maharashtra (workshop location accessible)</p>
+                                <p><i class="fas fa-building"></i> Est. 2022 – Authorized CNG service center</p>
+                            </div>
+                        </div>
+                        <div style="flex: 1 1 200px; background: #dff3ef; padding: 28px; border-radius: 32px;">
+                            <i class="fas fa-headset" style="font-size: 2.2rem; color: #0a3b32;"></i>
+                            <p style="font-weight: 700; margin-top: 12px; font-size: 1.3rem;">Open: Mon–Sat</p>
+                            <p>10:00 AM – 7:00 PM</p>
+                            <p style="margin-top: 20px;"><i class="fas fa-truck"></i> Fleet retrofit experts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRIVACY POLICY page block -->
+        <section id="privacy" class="policy-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-lock"></i> Privacy Policy</h2>
+                <div class="policy-card">
+                    <p style="font-size: 1.2rem; font-weight: 600; color: #0a3b32;">VIJAYA CNG SERVICES – PRIVACY NOTICE</p>
+                    <p><strong>Last updated:</strong> April 2025</p>
+                    <hr style="margin: 24px 0;">
+                    <p>At Vijaya CNG Services, we value your privacy. This policy outlines how we collect, use, and protect your personal information when you visit our service center or contact us.</p>
+                    <p style="margin-top: 20px;"><i class="fas fa-check-circle" style="color: #1c6e5e;"></i> <strong>Information we collect:</strong> Name, phone numbers (7020043768, 9970282161), email address, vehicle details, and CNG kit records. </p>
+                    <p><i class="fas fa-check-circle" style="color: #1c6e5e;"></i> <strong>Use of data:</strong> To provide CNG installation, hydro testing, repair, and fleet services; for appointment reminders and service updates.</p>
+                    <p><i class="fas fa-check-circle" style="color: #1c6e5e;"></i> <strong>Data sharing:</strong> We do not sell or rent your information. Authorized personnel only for service execution.</p>
+                    <p><i class="fas fa-check-circle" style="color: #1c6e5e;"></i> <strong>Security:</strong> We implement reasonable safeguards to protect your data.</p>
+                    <p style="margin-top: 28px;">For any privacy concerns, contact us at vijaycngservices@gmail.com or call 7020043768.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TERMS AND CONDITIONS page block -->
+        <section id="terms" class="terms-section" style="background: white;">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-file-contract"></i> Terms & Conditions</h2>
+                <div class="terms-card">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: #0a3b32;">Service Terms & Disclaimer</p>
+                    <p>By availing services at Vijaya CNG Services (Ahmednagar), you agree to the following:</p>
+                    <ul style="margin-top: 20px; list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 14px;"><i class="fas fa-angle-right" style="color: #1c6e5e; margin-right: 10px;"></i> <strong>CNG Kit Installation:</strong> Warranty as per manufacturer; improper use or external damage voids warranty.</li>
+                        <li style="margin-bottom: 14px;"><i class="fas fa-angle-right" style="color: #1c6e5e; margin-right: 10px;"></i> <strong>Hydro Testing:</strong> Fee approx ₹2,200 per cylinder. Test validity as per regulations. No refund once test is initiated.</li>
+                        <li style="margin-bottom: 14px;"><i class="fas fa-angle-right" style="color: #1c6e5e; margin-right: 10px;"></i> <strong>Repair & Maintenance:</strong> Estimates provided before work; charges for replacement parts extra.</li>
+                        <li style="margin-bottom: 14px;"><i class="fas fa-angle-right" style="color: #1c6e5e; margin-right: 10px;"></i> <strong>Liability:</strong> Vijaya CNG Services is not liable for consequential damages; our liability is limited to service charges.</li>
+                        <li style="margin-bottom: 14px;"><i class="fas fa-angle-right" style="color: #1c6e5e; margin-right: 10px;"></i> <strong>Fleet conversion:</strong> Commercial terms agreed via separate contract.</li>
+                    </ul>
+                    <p>We reserve the right to modify these terms. Use of our services constitutes acceptance.</p>
+                    <p style="margin-top: 28px;"><i class="fas fa-building"></i> VIJAYA CNG SERVICES – Owner: Satish Jalandar Jadhav, Ahmednagar.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER with copyright, privacy, terms, contact links again -->
+    <footer class="footer-links">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>VIJAYA CNG</h4>
+                    <p><i class="fas fa-user"></i> Satish Jalandar Jadhav</p>
+                    <p><i class="fas fa-map-pin"></i> Ahmednagar, MH</p>
+                    <p><i class="fas fa-phone"></i> 7020043768 / 9970282161</p>
+                    <p><i class="fas fa-envelope"></i> vijaycngservices@gmail.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <p><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></p>
+                    <p><a href="#services"><i class="fas fa-chevron-right"></i> Core Services</a></p>
+                    <p><a href="#contact"><i class="fas fa-chevron-right"></i> Contact page</a></p>
+                    <p><a href="#privacy"><i class="fas fa-chevron-right"></i> Privacy policy</a></p>
+                    <p><a href="#terms"><i class="fas fa-chevron-right"></i> Terms & conditions</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <p>CNG Kit Installation</p>
+                    <p>Cylinder Hydro Testing</p>
+                    <p>Repair & maintenance</p>
+                    <p>Software toolkit</p>
+                    <p>Fleet retrofit</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Authorized</h4>
+                    <p style="background: #256b60; padding: 6px 16px; border-radius: 40px; color: white; display: inline-block;">⭐ CNG FITMENT CENTER</p>
+                    <p style="margin-top: 22px;">Hydro test facility</p>
+                    <p>Govt. approved processes</p>
+                </div>
+            </div>
+            
+            <!-- COPYRIGHT notice (explicit) -->
+            <div class="copyright">
+                <p>© 2025 VIJAYA CNG SERVICES. All Rights Reserved. — Owner: Satish Jalandar Jadhav, Ahmednagar.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Designed for Vijaya CNG | 7020043768 | vijaycngservices@gmail.com</p>
+                <p style="margin-top: 8px;"><i class="fas fa-copyright"></i> This website includes Privacy Policy, Terms and Contact information as per company details.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- subtle back to top (extra) -->
+    <div style="position: fixed; bottom: 30px; right: 30px;">
+        <a href="#" style="background: #0a3b32; color: white; padding: 12px 18px; border-radius: 50px; font-size: 1.3rem; box-shadow: 0 6px 14px rgba(0,0,0,0.1);"><i class="fas fa-arrow-up"></i></a>
+    </div>
+
+    <!-- ensure all phones, name, company description appear -->
+    <div style="display: none;">validation for Satish Jalandar Jadhav, 7020043768, 9970282161, VIJAYA CNG SERVICES, Ahmednagar</div>
+</body>
+</html>
